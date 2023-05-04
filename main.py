@@ -28,6 +28,8 @@ def show_images():
     pyplot.show()
 
 
+show_images()
+
 batch_count = len(img_data)
 
 train_size = int(batch_count * 0.7)
@@ -54,7 +56,7 @@ model.add(MaxPooling2D())
 model.add(Flatten())
 
 model.add(Dense(256, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
+model.add(Dense(5, activation='softmax'))
 
 
 model.compile('adam', loss=tf.losses.BinaryCrossentropy(), metrics=['accuracy'])
@@ -118,8 +120,8 @@ else:
 
 
 model.save(os.path.join('models', 'images_recognition.h5'))
-new_model = load_model('images_recognition.h5')
-new_model.predict(np.expand_dims(resize/255, 0))asdasd
+# new_model = load_model('images_recognition.h5')
+# new_model.predict(np.expand_dims(resize/255, 0))
 
 
 
