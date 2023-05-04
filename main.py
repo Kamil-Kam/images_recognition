@@ -119,7 +119,7 @@ else:
 
 model.save(os.path.join('models', 'images_recognition.h5'))
 new_model = load_model('images_recognition.h5')
-new_model.predict(np.expand_dims(resize/255, 0))asdasd
+new_model.predict(np.expand_dims(resize/255, 0))
 
 
 
