@@ -7,6 +7,7 @@ import os
 from keras.models import Sequential, load_model
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from keras.metrics import Precision, Recall, BinaryAccuracy
+from keras.utils import to_categorical
 
 data_dir = 'data'
 img_extensions = ['jpg', 'jpeg', 'png']
@@ -22,7 +23,7 @@ batch_img = img_data_iterator.next()
 def show_images():
     figure, axes = pyplot.subplots(ncols=4, figsize=(16, 16))
     for idx, img in enumerate(batch_img[0][:4]):
-        axes[idx].imshow(img.astype(int))
+        axes[idx].imshow(img)
         axes[idx].title.set_text(batch_img[1][idx])
 
     pyplot.show()
